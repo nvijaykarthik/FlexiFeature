@@ -1,32 +1,27 @@
-# MessageStoreAndMessageReplay (MSMR Service)
+#FlexiFeature
 
-This Service helps to stores the Message(XML or JSON) in NoSql Db and provide an UI replay the messages in the MQ (active MQ).
-It listen to a Queue MSMR.IN, in below format
+ It is an application to manage the Application's feature.
+ In the scaled agile environment Features and Capabilities is important aspect to consider.
+ 
+ ```
+Features and Capabilities ( details in from Scaled Agile, Inc.)
+ A Feature is a service that fulfills a stakeholder need. Each feature includes a benefit hypothesis and acceptance criteria, and is sized or split as necessary to be delivered by a single Agile Release Train (ART) in a Program Increment (PI).
+ 
+ A Capability is a higher-level solution behavior that typically spans multiple ARTs. Capabilities are sized and split into multiple features to facilitate their implementation in a single PI. Features also lend themselves to the Lean UX process model, which includes a definition of the Minimum Marketable Feature (MMF), a benefit hypothesis, and acceptance criteria.
+ 
+ The MMF helps limit the scope and investment, enhances agility, and provides fast feedback.  Capabilities behave the same way as features. However, they are at a higher level of abstraction and support the definition and development of large Solutions.
+ 
+ 
+for more detalils https://www.scaledagileframework.com/features-and-capabilities/
 ```
-<envelop>
-  <headers> <!-- this will be injected back to the MQ while replaying in message header -->
-     <keyval-pair>
-       <key></key>
-       <value></value>
-     </keyval-pair>
-  </headers>
-  <searchkeys> <!-- this will be stored as separate fields in the DB so that UI can be used for search -->
-    <service-name></service-name>
-    <source-queue></source-queue>
-    <generated-time></generated-time>
-    <status></status> <!-- error or success-->
-  <searchkeys>
-  <body>
-    <messges>
-      <![CDATA[
-        Actual Payload
-      ]]>
-      </message>
-    <error>
-      <![CDATA[
-        Error details 
-      ]]>
-    </error>
-  </body>
-</envelop>
-```
+
+## Available Features 
+1.  Enterprise level feature management
+2.  Control the features at Portfolio level
+3.  Create new Feature, Registering the application , creating group of applications etc., so that features can be shared across 
+4.  Ability to provide the all active features
+5.  Ability to provide return the given feature is active or not. 
+6.  UI to control/manage the features.
+7.  Activate and Deactivate the feature
+8.  Activate and Deactivate the feature in periodic level using (cron)
+9.  Apply the feature to a portfolio level , single or Set of applications , single or set of application group, etc.,
