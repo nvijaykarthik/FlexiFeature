@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.github.nvijaykarthik.flexifeature.entity.FeaturesEntity;
+import io.github.nvijaykarthik.flexifeature.entity.Features;
 import io.github.nvijaykarthik.flexifeature.repository.FeaturesRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/features")
 public class FeatureController {
 
     private static final Logger logger = LoggerFactory.getLogger(FeatureController.class);
@@ -23,8 +23,8 @@ public class FeatureController {
     @Autowired
     FeaturesRepository repo;
 
-    @GetMapping(path = "/allFeatures")
-    public Page<FeaturesEntity> getAllFeatures(@RequestParam(name = "page",required = false) Integer pageNo,@RequestParam(name = "size",required = false) Integer size) {
+    @GetMapping(path = "/all")
+    public Page<Features> getAllFeatures(@RequestParam(name = "page",required = false) Integer pageNo,@RequestParam(name = "size",required = false) Integer size) {
         logger.info("Getting all the features page no:{}, page size:{}",pageNo,size);
         if(null==size)
             size=15;

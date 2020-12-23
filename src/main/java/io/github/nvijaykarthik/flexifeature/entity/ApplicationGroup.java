@@ -7,15 +7,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class GroupApplicationXref {
+public class ApplicationGroup {
     
     @Id 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(unique = true)
+    private String groupCode;
     @Column
-    String groupCode;
-    @Column
-    String applicationCode;
+    private String groupName;
+
+    @Override
+    public String toString() {
+        return "ApplicationGroup [groupCode=" + groupCode + ", groupName=" + groupName + ", id=" + id + "]";
+    }
 
     public Long getId() {
         return id;
@@ -33,17 +39,12 @@ public class GroupApplicationXref {
         this.groupCode = groupCode;
     }
 
-    public String getApplicationCode() {
-        return applicationCode;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setApplicationCode(String applicationCode) {
-        this.applicationCode = applicationCode;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
-    @Override
-    public String toString() {
-        return "GroupApplicationXref [applicationCode=" + applicationCode + ", groupCode=" + groupCode + ", id=" + id
-                + "]";
-    }
 }

@@ -14,44 +14,45 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.nvijaykarthik.flexifeature.domain.ICrudGeneral;
-import io.github.nvijaykarthik.flexifeature.entity.ApplicationGroup;
-import io.github.nvijaykarthik.flexifeature.repository.GroupRepository;
+import io.github.nvijaykarthik.flexifeature.entity.FeatureApplicaitonXref;
+import io.github.nvijaykarthik.flexifeature.repository.FeatureApplicaitonXrefRepository;
 
 @RestController
-@RequestMapping("/api/groups")
-public class GroupController implements ICrudGeneral<ApplicationGroup, Long> {
-
+@RequestMapping("/api/featureAppXref")
+public class FeatureApplicaitonXrefController implements ICrudGeneral<FeatureApplicaitonXref, Long> {
 
     @Autowired
-    private GroupRepository repo;
+    FeatureApplicaitonXrefRepository repo;
 
     @Override
     @GetMapping("/all")
-    public List<ApplicationGroup> getAll() {
+    public List<FeatureApplicaitonXref> getAll() {
         return IterableUtils.toList(repo.findAll());
     }
 
-    @GetMapping
     @Override
-    public ApplicationGroup get(@RequestParam Long id) {
+    @GetMapping
+    public FeatureApplicaitonXref get(@RequestParam Long id) {
         return repo.findById(id).orElse(null);
     }
 
+    @Override
     @PostMapping
-    @Override
-    public ApplicationGroup add(@RequestBody ApplicationGroup t) {
+    public FeatureApplicaitonXref add(@RequestBody FeatureApplicaitonXref t) {
+        
         return repo.save(t);
     }
 
+    @Override
     @PutMapping
-    @Override
-    public ApplicationGroup update(@RequestBody ApplicationGroup t) {
+    public FeatureApplicaitonXref update(@RequestBody FeatureApplicaitonXref t) {
+        
         return repo.save(t);
     }
 
-    @DeleteMapping
     @Override
-    public void delete(@RequestBody ApplicationGroup t) {
+    @DeleteMapping
+    public void delete(@RequestBody FeatureApplicaitonXref t) {
         repo.delete(t);
     }
     
