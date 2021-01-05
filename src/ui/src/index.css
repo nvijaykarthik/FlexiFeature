@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  color:#3d3d3d;
 }
 #root{
   min-height:100vh;
@@ -18,8 +19,81 @@ code {
 
 .lr-shadow{
   box-shadow: 12px 0 15px -4px #f0f0f1cc, -12px 0 8px -4px #f0f0f1cc;
+  -moz-box-shadow:12px 0 15px -4px #f0f0f1cc, -12px 0 8px -4px #f0f0f1cc;
+    -webkit-box-shadow: 12px 0 15px -4px #f0f0f1cc, -12px 0 8px -4px #f0f0f1cc;
+
 }
 
 .container-height{
   min-height:100vh;
+  background-color: white;
+}
+
+
+
+.title{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  }
+  .title-btn{
+    padding:.1em;
+    margin:.1em;
+  }
+@media (min-width: 576px) { 
+  .title{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    }
+    .title-btn{
+      padding:.1em;
+      margin:.1em;
+    }
+ }
+
+
+@media (min-width: 768px) { 
+  .title{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    }
+    .title-btn{
+      padding: .35em;
+    }
+ }
+
+
+@media (min-width: 992px) { 
+  .title{
+  text-align: center;
+  font-size: 26 px;
+  font-weight: 500;
+  }
+  .title-btn{
+    padding:.4em;
+  }
+}
+
+@media (min-width: 1200px) { 
+  .title{
+    text-align: center;
+    font-size: 29px;
+    font-weight: 500;
+  }
+  .title-btn{
+    padding:.5em;
+  }
+}
+
+@media (min-width: 1400px) {
+  .title{
+  text-align: center;
+  font-size: 29px;
+  font-weight: 500;
+}
+.title-btn{
+  padding:.6em;
+}
 }

@@ -26,7 +26,6 @@ const Menu = () => (
     <Link className="dropdown-item" to="/applicationGroup">ApplicationGroup</Link>
     <Link className="dropdown-item" to="/features">Features</Link>
     <Link className="dropdown-item" to="/group">Group</Link>
-
   </ul>
 )
 
@@ -35,19 +34,34 @@ export default class App extends Component {
   render() {
     return (
       <main className="container container-height lr-shadow" >
-        <div className="row">
-          <div className="col-sm-3">
-            
-            <div class="dropdown">
-              <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-              FlexiFeatures <i class="navbar-toggler-icon"></i>
+        <div className="row border-bottom ">
+          <div className="col-sm clearfix">
+            <div className="title float-start">
+              Flexi Features
+            </div>
+            <div className="dropdown">
+              <button className="btn  dropdown-toggle rounded-0 title-btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i className="fa fa-bars"></i>&nbsp;
+                  </button>
+              <Menu />
+            </div>  
+          </div>
+          <div className="col-sm">
+            <div className="text-center"><span className="align-bottom">Title</span></div>
+          </div>
+          <div className="col-sm text-right">
+              <div className="dropdown float-end">
+              <button className="btn btn-primary title-btn rounded-circle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                 Me
               </button>
-              <Menu/>
+              <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <Link className="dropdown-item" to="/">logout</Link>
+              </ul>
             </div>
           </div>
-          <div className="col-sm-9 p-1">
-            <Container/>
-          </div>
+        </div>
+        <div className="row">
+          <Container />
         </div>
       </main>
     );
