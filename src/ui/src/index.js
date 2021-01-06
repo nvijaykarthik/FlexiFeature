@@ -8,11 +8,20 @@ import 'font-awesome/css/font-awesome.min.css';
 
 
 import { BrowserRouter } from "react-router-dom";
+import { createStore } from "redux";
+import TitleReducer from "./redux/TitleReducer";
+import { Provider } from "react-redux";
+
+const store = createStore(
+  TitleReducer
+)
 
 ReactDOM.render(
+  <Provider store={store}>
     <BrowserRouter>
-    <App />
-    </BrowserRouter>,
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
