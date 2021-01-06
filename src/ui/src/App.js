@@ -5,7 +5,7 @@ import Application from "./pages/Application";
 import ApplicationGroup from "./pages/ApplicationGroup";
 import Features from "./pages/Features";
 import Group from "./pages/Group";
-
+import { connect } from "react-redux";
 
 const Container = () => (
   <main>
@@ -29,8 +29,13 @@ const Menu = () => (
   </ul>
 )
 
+const mapStateToProps=(state)=>{
+  return{
+    title:state.title
+  }
+}
 
-export default class App extends Component {
+class ConnectedApp extends Component {
   render() {
     return (
       <main className="container container-height lr-shadow" >
@@ -47,7 +52,7 @@ export default class App extends Component {
             </div>  
           </div>
           <div className="col-sm">
-            <div className="text-center"><span className="align-bottom">Title</span></div>
+            <div className="text-center"><span className="align-bottom">{this.props.title}</span></div>
           </div>
           <div className="col-sm text-right">
               <div className="dropdown float-end">
@@ -67,3 +72,7 @@ export default class App extends Component {
     );
   }
 }
+
+const App = connect(mapStateToProps,null)(ConnectedApp);
+
+export default App

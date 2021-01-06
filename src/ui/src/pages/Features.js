@@ -1,6 +1,23 @@
 import React,{ Component } from "react";
+import { connect } from "react-redux";
 
-export default class Features extends Component{
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        setTitle:(title)=>{
+            dispatch({type:"SET_TITLE",payload:title})
+        }
+    }
+
+}
+
+class ConnectedFeatures extends Component{
+    state={
+        title:"Features"
+    }
+   
+    componentDidMount(){
+        this.props.setTitle(this.state.title)
+    }
     render(){
         return(
             <div>
@@ -9,3 +26,7 @@ export default class Features extends Component{
         )
     }
 }
+
+
+const Features=connect(null,mapDispatchToProps)(ConnectedFeatures)
+export default Features;

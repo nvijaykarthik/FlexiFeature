@@ -1,6 +1,21 @@
 import React,{ Component } from "react";
+import { connect } from "react-redux";
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        setTitle:(title)=>{
+            dispatch({type:"SET_TITLE",payload:title})
+        }
+    }
 
-export default class Group extends Component{
+}
+class ConnectedGroup extends Component{
+    state={
+        title:"Group"
+    }
+   
+    componentDidMount(){
+        this.props.setTitle(this.state.title)
+    }
     render(){
         return(
             <div>
@@ -9,3 +24,7 @@ export default class Group extends Component{
         )
     }
 }
+
+
+const Group=connect(null,mapDispatchToProps)(ConnectedGroup)
+export default Group;
