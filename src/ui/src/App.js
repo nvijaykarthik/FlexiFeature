@@ -20,13 +20,13 @@ const Container = () => (
 )
 
 const Menu = () => (
-  <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <div className="dropdown-menu rounded-3" aria-labelledby="dropdownMenuButton">
     <Link className="dropdown-item" to="/">Home</Link>
     <Link className="dropdown-item" to="/application">Application</Link>
     <Link className="dropdown-item" to="/applicationGroup">ApplicationGroup</Link>
     <Link className="dropdown-item" to="/features">Features</Link>
     <Link className="dropdown-item" to="/group">Group</Link>
-  </ul>
+  </div>
 )
 
 const mapStateToProps=(state)=>{
@@ -40,28 +40,28 @@ class ConnectedApp extends Component {
     return (
       <main className="container container-height lr-shadow" >
         <div className="row border-bottom ">
-          <div className="col-sm clearfix">
-            <div className="title float-start">
-              Flexi Features
-            </div>
-            <div className="dropdown">
-              <button className="btn  dropdown-toggle rounded-0 title-btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i className="fa fa-bars"></i>&nbsp;
+          <div className="col-sm-5 col-md-4">
+            <div className="dropdown float-start">
+              <button className="btn btn-primary rounded-0 fs-5" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i className="fa fa-bars"></i>
                   </button>
               <Menu />
             </div>  
+            <div className="fs-3">
+              &nbsp;Flexi Features
+            </div>
           </div>
           <div className="col-sm">
-            <div className="text-center"><span className="align-bottom">{this.props.title}</span></div>
+            <div className="text-center fs-5">{this.props.title}</div>
           </div>
-          <div className="col-sm text-right">
+          <div className="col-sm-3">
               <div className="dropdown float-end">
-              <button className="btn btn-primary title-btn rounded-circle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              <button className="btn btn-secondary p-2 rounded-circle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                  Me
               </button>
-              <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <Link className="dropdown-item" to="/">logout</Link>
-              </ul>
+              </div>
             </div>
           </div>
         </div>

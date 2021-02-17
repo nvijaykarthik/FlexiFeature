@@ -7,9 +7,8 @@ const TitleReducer=(state=defaultState,action)=>{
         case "SET_TITLE":{
             console.log(action.payload)
             return{
-                ...state,
-                title:action.payload
-            }
+                  title:action.payload
+               }
         }
         default:{
             return{
